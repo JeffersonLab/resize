@@ -1,4 +1,4 @@
-package org.jlab.imagemagic.util;
+package org.jlab.resize.util;
 
 import java.io.Closeable;
 import java.io.DataInputStream;

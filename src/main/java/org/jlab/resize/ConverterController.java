@@ -1,4 +1,4 @@
-package org.jlab.imagemagic;
+package org.jlab.resize;
 
 import java.awt.Dimension;
 import java.io.BufferedReader;
@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-import org.jlab.imagemagic.util.IOUtil;
+import org.jlab.resize.util.IOUtil;
 
 /**
  *
