@@ -1,5 +1,5 @@
 # resize [![CI](https://github.com/JeffersonLab/resize/actions/workflows/ci.yml/badge.svg)](https://github.com/JeffersonLab/resize/actions/workflows/ci.yml) [![Docker](https://img.shields.io/docker/v/jeffersonlab/resize?sort=semver&label=DockerHub)](https://hub.docker.com/r/jeffersonlab/resize)
-A [Java EE 8](https://en.wikipedia.org/wiki/Jakarta_EE) web application for resizing images via a thin wrapper to [ImageMagick](https://imagemagick.org/), and developed for use by [Presenter](https://github.com/JeffersonLab/presenter).
+A [Java EE 8](https://en.wikipedia.org/wiki/Jakarta_EE) web application for resizing images via a wrapper to [ImageMagick](https://imagemagick.org/), developed for use by [Presenter](https://github.com/JeffersonLab/presenter).
 
 ![Screenshot](https://github.com/JeffersonLab/resize/raw/main/Screenshot.png?raw=true "Screenshot")
 
