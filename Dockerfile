@@ -18,3 +18,6 @@ RUN cd /app && gradle build -x test --no-watch-fs $OPTIONAL_CERT_ARG
 ################## Stage 1
 FROM ${RUN_IMAGE} as runner
 COPY --from=builder /app/build/libs/* /opt/jboss/wildfly/standalone/deployments
+USER root
+RUN yum install -y wget ImageMagick
+USER jboss
