@@ -39,7 +39,7 @@ This application requires a Java 11+ JVM and standard library to run, plus a Jav
 ## Configure
 
 ### Runtime
-Set the path to ImageMagick mogrify executable via environment variable.
+Set the path to ImageMagick mogrify executable via `MOGRIFY` environment variable.
 
 ## Build
 This project is built with [Java 17](https://adoptium.net/) (compiled to Java 11 bytecode), and uses the [Gradle 7](https://gradle.org/) build tool to automatically download dependencies and build the project from source:
