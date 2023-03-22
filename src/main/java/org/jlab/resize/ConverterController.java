@@ -51,10 +51,10 @@ public class ConverterController extends HttpServlet {
         execPath = config.getServletContext().getInitParameter("mogrify");
 
         if (execPath == null || execPath.isEmpty()) {
-            execPath = System.getenv("mogrify");
+            execPath = System.getenv("MOGRIFY");
 
             if (execPath == null || execPath.isEmpty()) {
-                throw new ServletException("Path to convert executable must be specified in an environment variable 'mogrify' or as a web application context parameter");
+                throw new ServletException("Path to convert executable must be specified in an environment variable 'MOGRIFY' or as a web application context parameter");
             }
         }
 

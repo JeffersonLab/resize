@@ -7,4 +7,5 @@ services:
       - "8080:8080"
       - "9990:9990"
     environment:
+      MOGRIFY: '/usr/bin/mogrify'
       TZ: 'America/New_York'
