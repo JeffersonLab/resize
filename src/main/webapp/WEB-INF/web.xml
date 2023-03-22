@@ -12,17 +12,13 @@
         <param-value>IM</param-value>
     </context-param>
     <context-param>
-        <param-name>resourceVersionNumber</param-name>
-        <param-value>1</param-value>
-    </context-param>
-    <context-param>
         <param-name>releaseNumber</param-name>
-        <param-value>1.2.0</param-value>
+        <param-value>@VERSION@</param-value>
     </context-param>
     <context-param>
         <param-name>releaseDate</param-name>
-        <param-value>10 Jun 2019</param-value>
-    </context-param>    
+        <param-value>@RELEASE_DATE@</param-value>
+    </context-param>
     <session-config>
         <session-timeout>
             30
