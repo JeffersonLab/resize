@@ -1,0 +1,3 @@
+services:
+  resize:
+    image: jeffersonlab/resize:2.0.0

@@ -1,0 +1,8 @@
+services:
+  resize:
+    extends:
+      file: docker-compose.yml
+      service: resize
+    build:
+      context: .
+      dockerfile: Dockerfile
