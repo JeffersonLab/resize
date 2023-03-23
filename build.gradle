@@ -3,7 +3,7 @@ plugins {
 }
 description = "Image Resize Web Service"
 group 'org.jlab'
-version = '2.0.0'
+version = '2.0.1'
 
 ext {
     releaseDate = 'Mar 23 2023'
