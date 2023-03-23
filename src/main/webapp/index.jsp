@@ -6,7 +6,7 @@
         <title>Resize Image</title>
     </head>
     <body>
-        <h1>Image Magic Resize n&apos; Reformat</h1>
+        <h1>ImageMagick Resize n&apos; Reformat</h1>
         <div id="version">Version: ${initParam.releaseNumber} (${initParam.releaseDate})</div>           
         <form method="post" action="convert" enctype="multipart/form-data" accept="image/*">
             <dl>
