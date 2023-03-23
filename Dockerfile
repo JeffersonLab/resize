@@ -17,7 +17,14 @@ RUN cd /app && gradle build -x test --no-watch-fs $OPTIONAL_CERT_ARG
 
 ################## Stage 1
 FROM ${RUN_IMAGE} as runner
+ARG CUSTOM_CRT_URL
 COPY --from=builder /app/build/libs/* /opt/jboss/wildfly/standalone/deployments
 USER root
-RUN yum install -y wget ImageMagick
+RUN if [ -z "${CUSTOM_CRT_URL}" ] ; then echo "No custom cert needed"; else \
+           curl -sS -o /etc/pki/ca-trust/source/anchors/customcert.crt $CUSTOM_CRT_URL \
+           && update-ca-trust \
+           && keytool -import -alias custom -file /etc/pki/ca-trust/source/anchors/customcert.crt -cacerts -storepass changeit -noprompt \
+        ; fi \
+        && yum install -y ImageMagick
 USER jboss
+ENV MOGRIFY='/usr/bin/mogrify'
