@@ -9,6 +9,7 @@ A [Java EE 8](https://en.wikipedia.org/wiki/Jakarta_EE) web application for resi
 - [Configure](https://github.com/JeffersonLab/resize#configure)
 - [Build](https://github.com/JeffersonLab/resize#build)
 - [Release](https://github.com/JeffersonLab/resize#release)
+- [Deploy](https://github.com/JeffersonLab/resize#deploy)
 ---
 
 ## Quick Start with Compose
@@ -58,3 +59,12 @@ gradlew build
 2. Create a new release on the GitHub Releases page corresponding to the same version in the build.gradle.   The release should enumerate changes and link issues.   A war artifact can be attached to the release to facilitate easy install by users.
 3. Build and publish a new Docker image [from the GitHub tag](https://gist.github.com/slominskir/a7da801e8259f5974c978f9c3091d52c#8-build-an-image-based-of-github-tag). GitHub is configured to do this automatically on git push of semver tag (typically part of GitHub release) or the [Publish to DockerHub](https://github.com/JeffersonLab/resize/actions/workflows/docker-publish.yml) action can be manually triggered after selecting a tag.
 4. Bump and commit quick start [image version](https://github.com/JeffersonLab/resize/blob/main/docker-compose.override.yml)
+
+## Deploy
+At JLab this app is found internally at [wildfly6.acc.jlab.org/resize](https://wildfly6.acc.jlab.org/resize) and at [wildflytest6.acc.jlab.org/resize](https://wildflytest6.acc.jlab.org/resize).  The `ace.jlab.org` and `acctest.acc.jlab.org` proxy servers do not proxy this internal only service.   A [deploy script](https://github.com/JeffersonLab/wildfly/blob/main/scripts/deploy.sh) is provided to automate wget and deploy.  Example:
+
+```
+/root/setup/deploy.sh resize v1.2.3
+```
+
+**JLab Internal Docs**:  [InstallGuideWildflyRHEL9](https://accwiki.acc.jlab.org/do/view/SysAdmin/InstallGuideWildflyRHEL9)
