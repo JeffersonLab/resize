@@ -1,4 +1,4 @@
-# resize [![CI](https://github.com/JeffersonLab/resize/actions/workflows/ci.yml/badge.svg)](https://github.com/JeffersonLab/resize/actions/workflows/ci.yml) [![Docker](https://img.shields.io/docker/v/jeffersonlab/resize?sort=semver&label=DockerHub)](https://hub.docker.com/r/jeffersonlab/resize)
+# resize [![CI](https://github.com/JeffersonLab/resize/actions/workflows/ci.yaml/badge.svg)](https://github.com/JeffersonLab/resize/actions/workflows/ci.yaml) [![Docker](https://img.shields.io/docker/v/jeffersonlab/resize?sort=semver&label=DockerHub)](https://hub.docker.com/r/jeffersonlab/resize)
 A [Java EE 8](https://en.wikipedia.org/wiki/Jakarta_EE) web application for resizing images via a wrapper to [ImageMagick](https://imagemagick.org/), developed for use by [Presenter](https://github.com/JeffersonLab/presenter).
 
 ![Screenshot](https://github.com/JeffersonLab/resize/raw/main/Screenshot.png?raw=true "Screenshot")
@@ -28,7 +28,7 @@ http://localhost:8080/resize
 ```
 
 ## Install
-This application requires a Java 11+ JVM and standard library to run, plus a Java EE 8+ application server (developed with Wildfly).
+This application requires a Java 17+ JVM and standard library to run, plus a Java EE 8+ application server (developed with Wildfly).
 
 1. Install ImageMagick
 2. Download [Wildfly 26.1.3](https://www.wildfly.org/downloads/)
@@ -43,7 +43,7 @@ This application requires a Java 11+ JVM and standard library to run, plus a Jav
 Set the path to ImageMagick mogrify executable via `MOGRIFY` environment variable.
 
 ## Build
-This project is built with [Java 17](https://adoptium.net/) (compiled to Java 11 bytecode), and uses the [Gradle 7](https://gradle.org/) build tool to automatically download dependencies and build the project from source:
+This project is built with [Java 21](https://adoptium.net/) (compiled to Java 17 bytecode), and uses the [Gradle 9](https://gradle.org/) build tool to automatically download dependencies and build the project from source:
 
 ```
 git clone https://github.com/JeffersonLab/resize
@@ -55,10 +55,9 @@ gradlew build
 **Note for JLab On-Site Users**: Jefferson Lab has an intercepting [proxy](https://gist.github.com/slominskir/92c25a033db93a90184a5994e71d0b78)
 
 ## Release
-1. Bump the release date and version number in build.gradle and commit and push to GitHub (using [Semantic Versioning](https://semver.org/)).
-2. Create a new release on the GitHub Releases page corresponding to the same version in the build.gradle.   The release should enumerate changes and link issues.   A war artifact can be attached to the release to facilitate easy install by users.
-3. Build and publish a new Docker image [from the GitHub tag](https://gist.github.com/slominskir/a7da801e8259f5974c978f9c3091d52c#8-build-an-image-based-of-github-tag). GitHub is configured to do this automatically on git push of semver tag (typically part of GitHub release) or the [Publish to DockerHub](https://github.com/JeffersonLab/resize/actions/workflows/docker-publish.yml) action can be manually triggered after selecting a tag.
-4. Bump and commit quick start [image version](https://github.com/JeffersonLab/resize/blob/main/docker-compose.override.yml)
+1. Bump the version number in the VERSION file and commit and push to GitHub (using [Semantic Versioning](https://semver.org/)).
+2. The [CD](https://github.com/JeffersonLab/resize/blob/main/.github/workflows/cd.yaml) GitHub Action should run automatically invoking:
+    - The [Create release](https://github.com/JeffersonLab/java-workflows/blob/main/.github/workflows/gh-release.yaml) GitHub Action to tag the source and create release notes summarizing any pull requests.   Edit the release notes to add any missing details.  A war file artifact is attached to the release.
 
 ## Deploy
 At JLab this app is found internally at [wildfly6.acc.jlab.org/resize](https://wildfly6.acc.jlab.org/resize) and at [wildflytest6.acc.jlab.org/resize](https://wildflytest6.acc.jlab.org/resize).  The `ace.jlab.org` and `acctest.acc.jlab.org` proxy servers do not proxy this internal only service.   A [deploy script](https://github.com/JeffersonLab/wildfly/blob/main/scripts/deploy.sh) is provided to automate wget and deploy.  Example:
