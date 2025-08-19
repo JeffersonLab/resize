@@ -2,13 +2,11 @@ plugins {
     id 'war'
 }
 description = "Image Resize Web Service"
-group 'org.jlab'
+group = 'org.jlab'
 version = '2.0.1'
-
-ext {
-    releaseDate = 'Mar 23 2023'
-}
-tasks.withType(JavaCompile) {
+ext.version = project.version
+ext.releaseDate = new Date().format('MMM dd yyyy')
+tasks.withType(JavaCompile).configureEach {
     options.release = 11
     options.encoding = 'UTF-8'
     options.compilerArgs += ["-Xlint:deprecation", "-Xlint:unchecked"]
@@ -21,10 +19,10 @@ dependencies {
                     'javax.servlet:jstl:1.2'
 }
 war {
-    archiveFileName='resize.war'
+    archiveFileName = 'resize.war'
     filesMatching('WEB-INF/web.xml') {
         filter {
-            String line -> line.replaceAll("@VERSION@", project.version)
+            String line -> line.replaceAll("@VERSION@", version)
         }
         filter {
             String line -> line.replaceAll("@RELEASE_DATE@", releaseDate)
