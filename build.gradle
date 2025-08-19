@@ -3,7 +3,7 @@ plugins {
 }
 description = "Image Resize Web Service"
 group = 'org.jlab'
-version = '2.0.1'
+version = new File("${projectDir}/VERSION").text.trim()
 ext.version = project.version
 ext.releaseDate = new Date().format('MMM dd yyyy')
 tasks.withType(JavaCompile).configureEach {
