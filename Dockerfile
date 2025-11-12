@@ -1,5 +1,5 @@
 ARG BUILD_IMAGE=gradle:9-jdk21
-ARG RUN_IMAGE=quay.io/wildfly/wildfly:26.1.3.Final-jdk17
+ARG RUN_IMAGE=jeffersonlab/wildfly:2.2.0
 
 ################## Stage 0
 FROM ${BUILD_IMAGE} AS builder
