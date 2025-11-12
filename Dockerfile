@@ -24,7 +24,6 @@ RUN if [ -z "${CUSTOM_CRT_URL}" ] ; then echo "No custom cert needed"; else \
            curl -sS -o /etc/pki/ca-trust/source/anchors/customcert.crt $CUSTOM_CRT_URL \
            && update-ca-trust \
            && keytool -import -alias custom -file /etc/pki/ca-trust/source/anchors/customcert.crt -cacerts -storepass changeit -noprompt \
-        ; fi \
-        && yum install -y ImageMagick
+        ; fi
 USER jboss
 ENV MOGRIFY='/usr/bin/mogrify'
