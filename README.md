@@ -1,5 +1,5 @@
 # resize [![CI](https://github.com/JeffersonLab/resize/actions/workflows/ci.yaml/badge.svg)](https://github.com/JeffersonLab/resize/actions/workflows/ci.yaml) [![Docker](https://img.shields.io/docker/v/jeffersonlab/resize?sort=semver&label=DockerHub)](https://hub.docker.com/r/jeffersonlab/resize)
-A [Java EE 8](https://en.wikipedia.org/wiki/Jakarta_EE) web application for resizing images via a wrapper to [ImageMagick](https://imagemagick.org/), developed for use by [Presenter](https://github.com/JeffersonLab/presenter).
+A [Jakarta EE 10](https://en.wikipedia.org/wiki/Jakarta_EE) web application for resizing images via a wrapper to [ImageMagick](https://imagemagick.org/), developed for use by [Presenter](https://github.com/JeffersonLab/presenter).
 
 ![Screenshot](https://github.com/JeffersonLab/resize/raw/main/Screenshot.png?raw=true "Screenshot")
 
@@ -31,7 +31,7 @@ http://localhost:8080/resize
 This application requires a Java 17+ JVM and standard library to run, plus a Java EE 8+ application server (developed with Wildfly).
 
 1. Install ImageMagick
-2. Download [Wildfly 26.1.3](https://www.wildfly.org/downloads/)
+2. Download [Wildfly 37.0.1](https://www.wildfly.org/downloads/)
 3. [Configure](https://github.com/JeffersonLab/resize#configure) Wildfly and start it
 4. Download [resize.war](https://github.com/JeffersonLab/resize/releases) and deploy it to Wildfly
 5. Navigate your web browser to [localhost:8080/resize](http://localhost:8080/resize)
@@ -60,10 +60,10 @@ gradlew build
     - The [Create release](https://github.com/JeffersonLab/java-workflows/blob/main/.github/workflows/gh-release.yaml) GitHub Action to tag the source and create release notes summarizing any pull requests.   Edit the release notes to add any missing details.  A war file artifact is attached to the release.
 
 ## Deploy
-At JLab this app is found internally at [wildfly6.acc.jlab.org/resize](https://wildfly6.acc.jlab.org/resize) and at [wildflytest6.acc.jlab.org/resize](https://wildflytest6.acc.jlab.org/resize).  The `ace.jlab.org` and `acctest.acc.jlab.org` proxy servers do not proxy this internal only service.   A [deploy script](https://github.com/JeffersonLab/wildfly/blob/main/scripts/deploy.sh) is provided to automate wget and deploy.  Example:
+At JLab this app is found internally at [wildfly5.acc.jlab.org/resize](https://wildfly6.acc.jlab.org/resize) and at [wildflytest5.acc.jlab.org/resize](https://wildflytest6.acc.jlab.org/resize).  The `ace.jlab.org` and `acctest.acc.jlab.org` proxy servers do not proxy this internal only service.   A [deploy script](https://github.com/JeffersonLab/wildfly/blob/main/scripts/deploy.sh) is provided to automate wget and deploy.  Example:
 
 ```
-/root/setup/deploy.sh resize v1.2.3
+/opt/wildfly/cd/deploy.sh resize v1.2.3
 ```
 
-**JLab Internal Docs**:  [InstallGuideWildflyRHEL9](https://accwiki.acc.jlab.org/do/view/SysAdmin/InstallGuideWildflyRHEL9)
+**JLab Internal Docs**:  [RHEL9 Wildfly](https://acgdocs.acc.jlab.org/en/ace/builds/rhel9-wildfly)
