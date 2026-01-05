@@ -28,7 +28,7 @@ http://localhost:8080/resize
 ```
 
 ## Install
-This application requires a Java 17+ JVM and standard library to run, plus a Java EE 8+ application server (developed with Wildfly).
+This application requires a Java 17+ JVM and standard library to run, plus a Jakarta EE 10 application server (developed with Wildfly).
 
 1. Install ImageMagick
 2. Download [Wildfly 37.0.1](https://www.wildfly.org/downloads/)
