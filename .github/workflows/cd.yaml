@@ -14,16 +14,15 @@ jobs:
       files: build/libs/resize.war
     secrets: inherit
 
-  # COMMENTED OUT BECAUSE OF ISSUE #4
-  #docker_publish:
-  #  permissions:
-  #    contents: read
-  #  needs:
-  #    - release
-  #  uses: jeffersonlab/container-workflows/.github/workflows/docker-publish.yaml@v2
-  #  with:
-  #    semvertag: ${{ needs.release.outputs.semvertag }}
-  #  secrets: inherit
+  docker_publish:
+    permissions:
+      contents: read
+    needs:
+      - release
+    uses: jeffersonlab/container-workflows/.github/workflows/docker-publish.yaml@v2
+    with:
+      semvertag: ${{ needs.release.outputs.semvertag }}
+    secrets: inherit
 
   acctest_deploy:
     permissions:
